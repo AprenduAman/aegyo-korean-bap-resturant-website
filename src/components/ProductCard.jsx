@@ -36,9 +36,7 @@ const ProductCard = (props) => {
             {" "}
             Price: ₹<span>{price}</span>
           </span>
-          <span className="shopping__icon">
-            <i class="ri-shopping-cart-line"></i>
-          </span>
+          
         </div>
       </div>
     </div>

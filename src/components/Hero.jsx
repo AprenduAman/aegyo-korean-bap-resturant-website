@@ -19,7 +19,7 @@ export default function Hero() {
           <em>
             Korean Cuisine 
           </em>
-          <button>ORDER NOW</button>
+          <a href="#cartmenu"><button>ORDER NOW</button></a>
         </div>
         </div>
     </Section>

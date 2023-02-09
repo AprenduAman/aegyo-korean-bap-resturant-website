@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo from "../image/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
-export default function Navbar() {
+export default function Navbar(props) {
   const [navbarState, setNavbarState] = useState(false);
   const html = document.querySelector("html");
   html.addEventListener("click", () => setNavbarState(false));
@@ -38,8 +38,16 @@ export default function Navbar() {
           <li>
             <a href="#menu">Menu</a>
           </li>
+          
           <li>
-            <a href="#newsletter">Newsletter</a>
+          <a href="#checkout1">
+          <i class="ri-shopping-cart-fill"></i>{' '}
+          {props.countCartItems ? (
+            <button id="count"className="badge">{props.countCartItems}</button>
+          ) : (
+            ''
+          )}
+        </a>{' '}
           </li>
         </ul>
       </Nav>
@@ -55,29 +63,26 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
-              Our Services
+            <a href="#slide" onClick={() => setNavbarState(false)}>
+             Services
             </a>
           </li>
+          
           <li>
-            <a href="#portfolio" onClick={() => setNavbarState(false)}>
-              Portfolio
+            <a href="#menu" onClick={() => setNavbarState(false)}>
+              Menu
             </a>
           </li>
+          
           <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
-              Testimonials
-            </a>
-          </li>
-          <li>
-            <a href="#products" onClick={() => setNavbarState(false)}>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#newsletter" onClick={() => setNavbarState(false)}>
-              Newsletter
-            </a>
+          <a href="#checkout1">
+          <i class="ri-shopping-cart-fill"></i>{' '}
+          {props.countCartItems ? (
+            <button id="count" className="badge">{props.countCartItems}</button>
+          ) : (
+            ''
+          )}
+        </a>{' '}
           </li>
         </ul>
       </ResponsiveNav>
@@ -86,6 +91,8 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki:wght@500&display=swap');
+ font-family:Noto Serif Khojki;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,6 +107,13 @@ const Nav = styled.nav`
     .toggle {
       display: none;
     }
+  }
+  #count {
+    border:none;
+    background-color:orange;
+    color:black;
+    font-size:18px;
+
   }
   .links {
     display: flex;
@@ -150,6 +164,12 @@ const ResponsiveNav = styled.div`
   display: flex;
   opacity: 0;
   visibility: hidden;
+  #count {
+    border:none;
+    background-color:orange;
+    color:black;
+    font-size:18px;
+  }
   ul {
     list-style-type: none;
     width: 100%;
