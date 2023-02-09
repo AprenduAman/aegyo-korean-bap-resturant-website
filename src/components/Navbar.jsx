@@ -11,7 +11,7 @@ export default function Navbar() {
     <>
       <Nav>
         <div className="logo">
-          <img src={logo} alt="Icon" />
+          <a href="#home"><img src={logo} alt="Icon" /> </a>
           <div className="toggle">
             {navbarState ? (
               <VscChromeClose onClick={() => setNavbarState(false)} />
@@ -32,16 +32,11 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#services">Our Services</a>
+            <a href="#slide">Services</a>
           </li>
+          
           <li>
-            <a href="#portfolio">Portfolio</a>
-          </li>
-          <li>
-            <a href="#testimonials">Testimonials</a>
-          </li>
-          <li>
-            <a href="#products">Products</a>
+            <a href="#menu">Menu</a>
           </li>
           <li>
             <a href="#newsletter">Newsletter</a>

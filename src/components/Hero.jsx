@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import main from "../image/main.jpg";
-import logo2 from "../image/logo2.png";
+
 
 export default function Hero() {
   return (
@@ -15,10 +15,9 @@ export default function Hero() {
         
         
         <div className="info">
-          <h2>RETAILER</h2>
+          <h2><center>𝔸𝕖𝕘𝕪𝕠 𝕂𝕠𝕣𝕖𝕒𝕟 𝔹𝕒𝕡</center></h2>
           <em>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            aspernatur itaque, eius quia voluptas numquam!
+            Korean Cuisine 
           </em>
           <button>ORDER NOW</button>
         </div>
@@ -85,6 +84,7 @@ const Section = styled.section`
       }
       .info {
         top: 25%;
+        left: 20%;
         h2 {
           font-size: 2rem;
         }

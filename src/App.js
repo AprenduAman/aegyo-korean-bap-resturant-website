@@ -5,6 +5,8 @@ import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 import scrollreveal from "scrollreveal";
 import Hero from "./components/Hero";
+import Services from "./components/Services";
+import MenuPack from "./components/MenuPack";
 
 export default function App() {
   useEffect(() => {
@@ -18,11 +20,10 @@ export default function App() {
       `
         nav,
         #home,
-        #services,
-        #portfolio,
-        #testimonials,
-        #products,
-        #newsletter,
+        #slide,
+        
+        #menu,
+        
         .footer
     `,
       {
@@ -36,9 +37,11 @@ export default function App() {
     <ScrollToTop/>
     <Navbar/>
     <Hero/>
-    
+    <Services/>
+    <MenuPack/>
     
     <Footer/>
+    
     </>
   )
 }
