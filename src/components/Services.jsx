@@ -1,5 +1,5 @@
 import React from "react";
-
+import { HashLink as NavLink } from 'react-router-hash-link';
 import { Container } from "reactstrap";
 import Slider from "react-slick";
 import "./slider.css";
@@ -29,7 +29,7 @@ export default function Services() {
                 <div className="slider__content w-50 ps-2">
                   <h2 id="tit"className="mb-3 ">{item.title}</h2>
                   <p id="desc">{item.desc}</p>
-                  <button id="bt1" className="btn">Explore Food</button>
+                  
                 </div>
 
                 <div className="slider__img w-50">

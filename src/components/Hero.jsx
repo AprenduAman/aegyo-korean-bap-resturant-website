@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink as NavLink } from 'react-router-hash-link';
 import styled from "styled-components";
 import main from "../image/main.jpg";
 
@@ -20,7 +21,7 @@ export default function Hero() {
             Authentic Korean Cuisine <br></br>
             Resturant for Friends & family
           </em>
-          <a href="#cartmenu"><button>ORDER NOW</button></a>
+          <NavLink to="/cart"><button>ORDER NOW</button></NavLink>
         </div>
         </div>
     </Section>

@@ -1,7 +1,67 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import "./basket.css";
+import axios from'axios';
+import { toast } from "react-toastify";
+async function cart( totalPrice, cartItems) {
+  var localData = JSON.parse(localStorage.getItem('currentUser'));
+  
+  // console.log(cartItems);
+  
+  var detail = [];
+  cartItems.forEach(element => {
+    // console.log(element);
+    detail.push({product:element.title, quantity:element.qty});
+  });
+  var some = {
+    detail:detail,
+    price: totalPrice
+  };
+  
+  
+  var email=localData.email;
+    
+    console.log(email);
+    var user1 = await axios.get(`http://localhost:8000/api/register/${email}`);
+    var user2= { ...user1.data.data,orders : [...user1.data.data.orders, some]}; 
+    console.log(user2)
+    axios.put(`http://localhost:8000/api/register/${email}`, user2).catch((err) => {
+      console.log(err.message);
+    });
+
+      
+  }
+
 
 export default function Basket(props) {
+  const [user, setUser]= useState(null);
+  useEffect(() => {
+    var localData = JSON.parse(localStorage.getItem('currentUser'));
+    setUser(localData);
+}, []);
+  const order =()=>{
+    if(user==null){
+      toast.error("Login First!", {
+        position: toast.POSITION.TOP_CENTER,
+        style: {
+          padding:'20px',
+          backgroundColor:'ghostwhite',
+        },
+        
+        autoClose: 3500,
+      });
+    } else {
+      cart(totalPrice, cartItems);
+      toast.success("Order Placed!", {
+        position: toast.POSITION.TOP_CENTER,
+        style: {
+          padding:'20px',
+          backgroundColor:'ghostwhite',
+        },
+        
+        autoClose: 3500,
+      });
+    }
+  }
   const { cartItems, onAdd, onRemove } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const taxPrice = itemsPrice * 0.14;
@@ -56,10 +116,12 @@ export default function Basket(props) {
             </div>
             <hr />
             <div className="row">
-              <button id="checkout" onClick={() => alert('Order Confirmed')}>
+              <button id="checkout" onClick={order}>
                 Checkout
               </button>
             </div>
+           
+           
           </>
         )}
       </div>

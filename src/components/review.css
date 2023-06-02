@@ -1,20 +1,26 @@
 .rev{
   margin-top: 170px;
   margin-bottom: 70px;
+  
 }
 .center {
     
     margin:auto;
-    height: 80%;
-    width: 50vw;
+    height: auto;
+    width: 100vw;
     border: 3px solid #d3d3d3;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
   }
   .result{
-    padding: 5px;
+    padding: 10px;
     margin: 10px 2px ;
+    border-radius: 20px;
+    width:auto;
     background-color: rgb(240, 237, 233);
+    
   }
   
   h2 {
@@ -28,29 +34,48 @@
     border: none;
     background-color:#f76e11 ;
     padding: 5px;
-    border-radius: 12px;
+    border-radius: 10px;
     color: #ffffff;
     font-weight: 600;
+    margin-top: 10px;
+    margin-left: 45%;
   }
   input {
     background-color: rgb(237, 245, 248);
-    width: 85%;
+    width: 100%;
+    border-radius: 20px;
+    height: 55px;
     border:none;
     border-radius: 5px;
+    padding: 10px;
+    
+  }
+  textarea   {
+    background-color: rgb(237, 245, 248);
+    width: 100%;
+    border-radius: 20px;
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
   }
   
   form {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
     margin-bottom: 5px;
+    
   }
-  .result {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-  h6 {
+  
+  h4 {
     margin-right: 2px;
+    display: flex;
+    justify-self: flex-start; 
+    flex-wrap: wrap;   
+  }
+  h5 {
+    display: flex;
+    margin-right: 2px;
+    justify-content: flex-end;
   }
   
   li {
@@ -63,7 +88,7 @@
     font-weight: 600;
   }
   
-  @media only screen and (max-width: 950px) {
+  @media only screen and (max-width: 950px ) {
     .rev{
       margin-top: 40px;
       margin-bottom: 40px;
@@ -71,6 +96,7 @@
     .center {
       width: auto;
     }
+    
   }
   
   @media only screen and (min-width: 950px) {
@@ -80,7 +106,8 @@
     }
     .center {
       
-      width: 40%;
+      width: 65%;
     }
+    
   }
   

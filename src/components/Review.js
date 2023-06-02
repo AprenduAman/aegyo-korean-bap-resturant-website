@@ -1,10 +1,23 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from 'axios';
 import useList from "./useList";
 import "./review.css";
 export default function App() {
-  const { list, push, pull } = useList("");
-  const [todo, setTodo] = useState("");
+  const { list, push } = useList("");
+  const [review, setReview] = useState("");
+  const [name, setName] = useState("");
+  useEffect(() => {
+    axios
+      .post("http://localhost:8000/api/review",list)
+      .then((res) => {
+        // console.log(res.data);
+        // setList(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, [list]);
 
   const errorr = () => {
     document.getElementById("errorOccured").innerHTML =
@@ -12,9 +25,11 @@ export default function App() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    if (todo.length > 0) {
-      push(todo);
-      setTodo("");
+    if (review.length > 0) {
+      push({review,name});
+      
+      setReview("");
+      setName("");
       document.getElementById("errorOccured").innerHTML = "";
     } else errorr();
   };
@@ -30,27 +45,40 @@ export default function App() {
               onSubmit(event);
             }}
           >
-            <input 
+            <textarea
               type="text"
-              value={todo}
+              value={review}
+              placeholder="review"
+              cols={40}
+              row={4}
               onChange={(e) => {
-                setTodo(e.target.value);
+                setReview(e.target.value);
               }}
             />
+            <br/>
+            <input 
+              type="text"
+              value={name}
+              placeholder="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            /><br></br>
             <button class="submitbtn" type="submit">
               Submit
             </button>
           </form>
-          <p id="errorOccured"></p>
+          <span id="errorOccured"></span>
         </div>
         <hr></hr>
         <div >
           {list.map((listitem, listindex) => {
             return (
-              <div className="result">
-                <h5 key={listindex}>
-                   {listitem}
-                </h5>
+              <div className="result" >
+                <h4  key={listindex}>
+                   {listitem.review}
+                </h4>
+                <h5 style={{marginTop:"20px"}}>  ~ {listitem.name}</h5>
 
                 
               </div>

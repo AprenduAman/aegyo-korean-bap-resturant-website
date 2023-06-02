@@ -32,9 +32,9 @@ const ProductCard = (props) => {
         <h6>{title}</h6>
 
         <div className=" d-flex align-items-center justify-content-between">
-          <span className="price d-flex align-items-center">
+          <span id="price" className="price d-flex align-items-center">
             {" "}
-            Price: ₹<span>{price}</span>
+            Price: ₹<>{price}</>
           </span>
           
         </div>
