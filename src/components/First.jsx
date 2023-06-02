@@ -46,6 +46,7 @@ export default function First() {
     <Services/>
     <MenuPack/>
     <Review/>
+    <footer/>
     
     </>
   )

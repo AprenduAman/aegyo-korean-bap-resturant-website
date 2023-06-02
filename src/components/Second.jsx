@@ -52,7 +52,7 @@ export default function Second() {
         .login,
         .register,
         .rev,
-        
+        .footer
         
     `,
       {
@@ -72,7 +72,7 @@ export default function Second() {
           onAdd={onAdd}
           onRemove={onRemove}/>
     {/* <CountContext.Provider value={cartItems}><First/></CountContext.Provider> */}
-
+    <footer/>
     </>
   )
 }
